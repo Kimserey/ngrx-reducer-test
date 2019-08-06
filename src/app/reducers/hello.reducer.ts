@@ -8,17 +8,18 @@ export interface State {
     message?: string;
 }
 
-export const initialState: State = {};
+export const initialState: State = {
+    message: 'Some state for the beginning.'
+};
 
 export const reducer = createReducer(
     initialState,
     on(
         HelloActions.saySomething,
         (state, { message }) => {
-            console.log('test');
             return {
-                message,
-                ...state
+                ...state,
+                message
             };
         }
     )

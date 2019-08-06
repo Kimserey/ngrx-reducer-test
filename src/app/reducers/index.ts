@@ -5,11 +5,15 @@ export interface State {
     hello: fromHello.State
 }
 
-export function reducers(state: State | undefined, action: Action) {
-    return combineReducers({
-        hello: fromHello.reducer
-    })(state, action);
-}
+// export function reducers(state: State | undefined, action: Action) {
+//     return combineReducers({
+//         hello: fromHello.reducer
+//     })(state, action);
+// }
+
+export const reducers = {
+    hello: fromHello.reducer
+};
 
 export const getHelloState = createFeatureSelector<State, fromHello.State>('hello');
 
