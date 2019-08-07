@@ -9,12 +9,8 @@ export const initialState = {
     hello: fromHello.initialState
 };
 
-export const r: ActionReducerMap<State> = {
-    hello: fromHello.reducer
-};
-
 export const reducers = {
-    ...r
+    hello: fromHello.reducer
 };
 
 export const getHelloState = createFeatureSelector<State, fromHello.State>('hello');

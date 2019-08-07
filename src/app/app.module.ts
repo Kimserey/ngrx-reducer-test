@@ -17,7 +17,9 @@ import * as fromRoot from './reducers';
     BrowserModule,
     AppRoutingModule,
 
-    StoreModule.forRoot(fromRoot.reducers),
+    // StoreModule.forRoot(fromRoot.reducers),
+    StoreModule.forRoot({ ...fromRoot.reducers }),
+    // StoreModule.forRoot(Object.assign({}, fromRoot.reducers)),
     
     StoreDevtoolsModule.instrument({
       name: 'NgRx Test'
