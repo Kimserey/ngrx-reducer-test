@@ -4,14 +4,18 @@ Reproduces the issue where reducer state can't be initialised when the reducers 
 
 ```
 // app.module.ts
-StoreModule.forRoot(fromRoot.reducers),
+StoreModule.forRoot(fromRoot.reducers), <-- properly initialised
 StoreModule.forRoot({ ...fromRoot.reducers }), <-- null state
 StoreModule.forRoot(Object.assign({}, fromRoot.reducers)), <-- null state
 ```
 
+Run AOT with:
+
 ```
 ng serve --aot
 ```
+
+Observe the following error on the browser console:
 
 ```
 core.js:7187 ERROR TypeError: Cannot read property 'message' of undefined
