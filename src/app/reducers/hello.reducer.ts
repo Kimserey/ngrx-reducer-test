@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 
 import {
     HelloActions
@@ -12,7 +12,7 @@ export const initialState: State = {
     message: 'Some state for the beginning.'
 };
 
-export const reducer = createReducer(
+const helloReducer = createReducer(
     initialState,
     on(
         HelloActions.saySomething,
@@ -25,4 +25,8 @@ export const reducer = createReducer(
     )
 );
 
-export const getMessage = (state: State) => state.message;
+export function reducer(state: State | undefined, action: Action) {
+    return helloReducer(state, action);
+}
+
+export const getMessage = (state: State) => state.message.toLocaleLowerCase();
