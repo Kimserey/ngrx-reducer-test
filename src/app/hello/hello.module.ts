@@ -11,7 +11,6 @@ import { HelloWorldComponent } from './components/hello-world.component';
     CommonModule,
     HelloRoutingModule,
     StoreModule.forFeature(reducer.featureKey, reducer.FEATURE_REDUCERS)
-  ],
-  exports: [HelloWorldComponent]
+  ]
 })
 export class HelloModule { }

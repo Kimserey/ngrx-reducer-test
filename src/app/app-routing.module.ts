@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/hello', pathMatch: 'full' },
+  { path: '', redirectTo: '/water', pathMatch: 'full' },
   {
     path: 'hello',
     loadChildren: './hello/hello.module#HelloModule'
+  },
+  {
+    path: 'water',
+    loadChildren: './water/water.module#WaterModule'
   }
 ];
 
