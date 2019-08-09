@@ -12,4 +12,4 @@ import { WaterComponent } from './water.component';
     StoreModule.forFeature('water', {})
   ]
 })
-export class HelloModule { }
+export class WaterModule { }
