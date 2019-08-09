@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { HelloActions } from './actions';
+import { HelloActions } from '../actions';
 import { Observable } from 'rxjs';
-import * as fromRoot from './reducers';
+import * as fromHello from '../reducers';
 
 @Component({
   template: `
@@ -16,8 +16,8 @@ import * as fromRoot from './reducers';
 export class HelloWorldComponent {
   message$: Observable<string>;
 
-  constructor(private store: Store<fromRoot.State>) { 
-    this.message$ = store.pipe(select(fromRoot.getHelloMessage));
+  constructor(private store: Store<fromHello.State>) { 
+    this.message$ = store.pipe(select(fromHello.getHelloMessage));
   }
 
   random() {
@@ -25,6 +25,6 @@ export class HelloWorldComponent {
   }
 
   test() {
-    this.store.dispatch(HelloActions.saySomething({ message: `Hello ${this.random()}!` }))
+    this.store.dispatch(HelloActions.sayHello({ message: `Hello ${this.random()}!` }))
   }
 }

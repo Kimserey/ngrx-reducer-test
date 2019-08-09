@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloWorldComponent } from './hello-world.component';
 
-const routes: Routes = [{
-  path: '',
-  component: HelloWorldComponent,
-  data: { title: 'Hello World' }
-}];
+const routes: Routes = [
+  { path: '', redirectTo: '/hello', pathMatch: 'full' },
+  {
+    path: 'hello',
+    loadChildren: './hello/hello.module#HelloModule'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

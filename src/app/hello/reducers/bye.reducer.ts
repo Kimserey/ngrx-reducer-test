@@ -1,21 +1,20 @@
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+import { HelloActions } from '../actions';
 
-import {
-    HelloActions
-} from '../actions';
+export const byeReducerKey = 'bye';
 
 export interface State {
     message?: string;
 }
 
 export const initialState: State = {
-    message: 'Some state for the beginning.'
+    message: 'Some state for the beginning of Bye.'
 };
 
-const helloReducer = createReducer(
+export const reducer = createReducer(
     initialState,
     on(
-        HelloActions.saySomething,
+        HelloActions.sayBye,
         (state, { message }) => {
             return {
                 ...state,
@@ -24,9 +23,5 @@ const helloReducer = createReducer(
         }
     )
 );
-
-export function reducer(state: State | undefined, action: Action) {
-    return helloReducer(state, action);
-}
 
 export const getMessage = (state: State) => state.message.toLocaleLowerCase();
